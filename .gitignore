@@ -1,0 +1,19 @@
+# Model Weights (downloaded dynamically or via HuggingFace)
+*.pt
+*.onnx
+*.engine
+
+# Python cache & environments
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# Editor settings
+.vscode/
+.idea/
+
+# OS specific
+Thumbs.db
+Desktop.ini

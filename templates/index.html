@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SerBot — Industrial PPE Compliance Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+
+  <!-- TOP APP BAR -->
+  <header class="top-bar">
+    <div class="brand-section">
+      <span class="brand-badge">SERBOT</span>
+      <div class="brand-title">
+        PPE Safety Monitor
+        <span class="brand-subtitle">Autonomous Mobile Vision Platform</span>
+      </div>
+    </div>
+
+    <!-- MAIN NAVIGATION TABS -->
+    <nav class="nav-tabs">
+      <button class="nav-tab-btn active" data-tab="tab-overview">
+        <span>📋</span> Overview & Architecture
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-camera">
+        <span>📹</span> Live Robot Camera
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-lab">
+        <span>🔬</span> Interactive Inference Lab
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-gallery">
+        <span>🖼️</span> Evaluation Gallery
+      </button>
+    </nav>
+
+    <!-- SYSTEM STATUS BADGE -->
+    <div class="system-telemetry-badge">
+      <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span>YOLOv8s ONLINE</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="main-content">
+
+    <!-- ==================== TAB 1: OVERVIEW & ARCHITECTURE ==================== -->
+    <section id="tab-overview" class="tab-pane active">
+      
+      <!-- HERO -->
+      <div class="overview-hero">
+        <div>
+          <span class="hero-tag">⚙️ ROBOTICS & COMPUTER VISION HANDOVER</span>
+          <h1 class="hero-heading">Autonomous Real-Time PPE Safety Compliance</h1>
+          <p class="hero-description">
+            SerBot is an autonomous mobile differential drive robotics platform engineered for factory and construction site safety audits. Operating on a two-wheel geared drivetrain with Cytron motor drivers and an elevated 45° downward-pitched camera mast, SerBot patrols hazardous work zones and identifies safety non-compliance in real time using YOLOv8 computer vision.
+          </p>
+          <div class="spec-pills">
+            <span class="spec-pill">Model: <b>SafetyVision v2 (YOLOv8s)</b></span>
+            <span class="spec-pill">Dataset: <b>80,000+ Industrial Images</b></span>
+            <span class="spec-pill">Drivetrain: <b>2WD Differential Drive</b></span>
+            <span class="spec-pill">Mast: <b>50cm Channel @ 45° Pitch</b></span>
+            <span class="spec-pill">Inference: <b>Real-Time OpenCV</b></span>
+          </div>
+        </div>
+
+        <!-- ROBOT SIDE PROFILE SCHEMATIC -->
+        <div style="background:var(--bg-surface);border:1px solid var(--border-medium);border-radius:8px;padding:1.25rem;text-align:center;">
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);margin-bottom:0.75rem;text-align:left;">
+            MECHANICAL ARCHITECTURE (CAD SCHEMATIC)
+          </div>
+          <svg viewBox="0 0 320 220" width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Mast -->
+            <rect x="220" y="24" width="8" height="96" rx="2" fill="#2a3c57" stroke="#38bdf8" stroke-width="1.2"/>
+            <!-- Camera Bracket 45 deg -->
+            <g transform="rotate(-35 224 30)">
+              <rect x="206" y="20" width="36" height="20" rx="3" fill="#1b283d" stroke="#f59e0b" stroke-width="1.5"/>
+              <circle cx="212" cy="30" r="5" fill="#090d14" stroke="#38bdf8" stroke-width="1"/>
+              <circle cx="212" cy="30" r="2" fill="#38bdf8"/>
+            </g>
+            <!-- Camera Field of View Cone -->
+            <path d="M 215 32 L 60 120 L 140 120 Z" fill="rgba(56, 189, 248, 0.08)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="130" y="70" font-family="monospace" font-size="8" fill="#38bdf8">45° Optical Sightline</text>
+            <!-- Chassis Base (Wood) -->
+            <rect x="50" y="120" width="220" height="42" rx="4" fill="#151f30" stroke="#f59e0b" stroke-width="1.8"/>
+            <text x="145" y="145" font-family="monospace" font-size="10" font-weight="bold" fill="#f1f5f9" text-anchor="middle">SERBOT CHASSIS</text>
+            <!-- Electronics Bay -->
+            <rect x="65" y="127" width="60" height="28" rx="2" fill="#090d14" stroke="#2a3c57" stroke-width="1"/>
+            <text x="95" y="144" font-family="monospace" font-size="7" fill="#8e9fb5" text-anchor="middle">ESP32 + CYTRON</text>
+            <!-- Castor Front Wheel -->
+            <circle cx="70" cy="178" r="14" fill="#090d14" stroke="#54657d" stroke-width="2"/>
+            <!-- Drive Wheels -->
+            <circle cx="230" cy="176" r="24" fill="#090d14" stroke="#f59e0b" stroke-width="2.5"/>
+            <circle cx="230" cy="176" r="8" fill="#1b283d" stroke="#38bdf8" stroke-width="1.5"/>
+            <!-- Dimension indicators -->
+            <line x1="240" y1="24" x2="240" y2="120" stroke="#54657d" stroke-width="1" stroke-dasharray="2 2"/>
+            <text x="248" y="75" font-family="monospace" font-size="8" fill="#8e9fb5">50 cm</text>
+          </svg>
+          <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);display:flex;justify-content:space-between;border-top:1px solid var(--border-subtle);padding-top:0.5rem;margin-top:0.5rem;">
+            <span>Ground Clearance: 4.5cm</span>
+            <span>Pitch Angle: 45°</span>
+            <span>Drive: Differential</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HARDWARE SPECIFICATIONS CARDS -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>⚙️</span> Hardware & Mechanical Engineering Specifications
+          </div>
+          <span class="panel-tag">Subsystem Breakdown</span>
+        </div>
+        <div class="panel-body">
+          <div class="grid-4">
+            
+            <div class="hw-spec-card">
+              <div class="hw-spec-header">
+                <span class="hw-spec-icon">🏎️</span>
+                <span class="hw-spec-title">Drivetrain</span>
+              </div>
+              <div class="hw-spec-value">2-Wheel Differential Drive</div>
+              <p class="hw-spec-note">High-traction rubber wheels driven by geared DC motors via Cytron DC driver for independent PWM speed and zero-radius turns.</p>
+            </div>
+
+            <div class="hw-spec-card">
+              <div class="hw-spec-header">
+                <span class="hw-spec-icon">🛡️</span>
+                <span class="hw-spec-title">Power Isolation</span>
+              </div>
+              <div class="hw-spec-value">Dual Isolated Switches</div>
+              <p class="hw-spec-note">Separate master motor switch and isolated logic switch for ESP microcontroller to isolate inductive back-EMF spikes from resetting CPU.</p>
+            </div>
+
+            <div class="hw-spec-card">
+              <div class="hw-spec-header">
+                <span class="hw-spec-icon">📐</span>
+                <span class="hw-spec-title">Sensor Mast</span>
+              </div>
+              <div class="hw-spec-value">50 cm @ 45° Pitch</div>
+              <p class="hw-spec-note">Elevated channel solves near-field blind spots, capturing complete head-to-torso profile of workers within 1–4 meters without tipping the robot.</p>
+            </div>
+
+            <div class="hw-spec-card">
+              <div class="hw-spec-header">
+                <span class="hw-spec-icon">🧠</span>
+                <span class="hw-spec-title">Vision Pipeline</span>
+              </div>
+              <div class="hw-spec-value">SafetyVision v2 (YOLOv8s)</div>
+              <p class="hw-spec-note">Trained on 80,000+ industrial images. 13 classes including Hardhat, Safety Vest, Goggles, Gloves, Mask, plus negative violation classes.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- END-TO-END INFERENCE PIPELINE -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🔄</span> End-to-End Real-Time Perception Pipeline
+          </div>
+          <span class="panel-tag">Execution Flow</span>
+        </div>
+        <div class="panel-body">
+          <div class="pipeline-row">
+            <div class="pipeline-step">
+              <div class="pipeline-step-num">STAGE 01</div>
+              <div class="pipeline-step-title">Optical Frame Capture</div>
+              <div class="pipeline-step-desc">USB Camera captures 640×480 @ 30 FPS. Software performs 180° rotation to handle inverted hardware mounting used for clean cable routing.</div>
+            </div>
+            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-step">
+              <div class="pipeline-step-num">STAGE 02</div>
+              <div class="pipeline-step-title">YOLOv8s Inference</div>
+              <div class="pipeline-step-desc">Frame passes through anchor-free YOLOv8s detector at CONF=0.30 & IOU=0.45, generating coordinates, class indices, and confidence probabilities.</div>
+            </div>
+            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-step">
+              <div class="pipeline-step-num">STAGE 03</div>
+              <div class="pipeline-step-title">Synonym & Violation Resolver</div>
+              <div class="pipeline-step-desc">Synonym engine reconciles model class labels (e.g., "helmet" → "Hardhat") and identifies explicit negative labels (e.g. "NO-Hardhat").</div>
+            </div>
+            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-step">
+              <div class="pipeline-step-num">STAGE 04</div>
+              <div class="pipeline-step-title">Compliance Evaluation & IoT</div>
+              <div class="pipeline-step-desc">Calculates compliance %, renders on-screen HUD overlays, logs safety violation events, and structures JSON telemetry ready for cloud upload.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================== TAB 2: LIVE ROBOT CAMERA ==================== -->
+    <section id="tab-camera" class="tab-pane">
+      <div class="camera-layout">
+        
+        <!-- VIDEO STREAM PANEL -->
+        <div class="camera-monitor-panel">
+          
+          <div class="camera-controls-bar">
+            <div style="display:flex;align-items:center;gap:1rem;">
+              <button id="cam-start-btn" class="btn-primary">
+                ▶ Start Live Camera
+              </button>
+              <button id="cam-stop-btn" class="btn-danger" style="display:none;">
+                ⏹ Stop Camera
+              </button>
+              
+              <div style="display:flex;align-items:center;gap:0.4rem;font-family:var(--font-mono);font-size:0.78rem;">
+                <label for="cam-index-select" style="color:var(--text-muted);">Device:</label>
+                <select id="cam-index-select" style="background:var(--bg-primary);border:1px solid var(--border-medium);color:#fff;padding:0.25rem 0.5rem;border-radius:4px;font-family:var(--font-mono);font-size:0.75rem;">
+                  <option value="0" selected>Camera 0 (Default)</option>
+                  <option value="1">Camera 1 (External Robot USB)</option>
+                  <option value="2">Camera 2</option>
+                </select>
+              </div>
+
+              <label class="toggle-wrap">
+                <input type="checkbox" id="cam-rotate-toggle">
+                <span>180° Invert (Upside-Down Mount)</span>
+              </label>
+            </div>
+
+            <div class="conf-slider-wrap">
+              <span style="color:var(--text-muted);">Conf:</span>
+              <input type="range" id="cam-conf-slider" min="0.10" max="0.90" step="0.05" value="0.30">
+              <span class="conf-val" id="cam-conf-val">0.30</span>
+            </div>
+          </div>
+
+          <div class="camera-video-container">
+            <img id="camera-stream-img" src="" alt="Live Video Feed" style="display:none;">
+            <div id="camera-placeholder" class="camera-placeholder">
+              <div class="camera-placeholder-icon">📹</div>
+              <div style="font-weight:700;color:#fff;">Live Camera Feed Offline</div>
+              <p style="font-size:0.8rem;max-width:400px;">
+                Connect the SerBot USB camera or external webcam, select the camera device index, and click <b>Start Live Camera</b>.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- LIVE TELEMETRY & STATUS SIDEBAR -->
+        <div>
+          
+          <!-- LIVE COMPLIANCE STATUS CARD -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title"><span>📡</span> Live Detection Telemetry</div>
+              <span id="cam-overall-badge" class="ppe-badge detected">STANDBY</span>
+            </div>
+            <div class="panel-body">
+              <div style="display:flex;justify-content:space-between;margin-bottom:1rem;font-family:var(--font-mono);">
+                <div>
+                  <div style="font-size:0.7rem;color:var(--text-muted);">INFERENCE SPEED</div>
+                  <div id="cam-fps-val" style="font-size:1.4rem;font-weight:800;color:var(--tech-blue);">0.0 FPS</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-size:0.7rem;color:var(--text-muted);">COMPLIANCE SCORE</div>
+                  <div id="cam-score-val" style="font-size:1.4rem;font-weight:800;color:var(--safety-green);">0%</div>
+                </div>
+              </div>
+
+              <!-- TRACKED PPE STATUS BADGES -->
+              <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                <div class="ppe-row-item">
+                  <div class="ppe-row-name"><span>⛑️</span> HARDHAT</div>
+                  <span id="cam-badge-hardhat" class="ppe-badge absent">ABSENT</span>
+                </div>
+                <div class="ppe-row-item">
+                  <div class="ppe-row-name"><span>🦺</span> SAFETY VEST</div>
+                  <span id="cam-badge-safety-vest" class="ppe-badge absent">ABSENT</span>
+                </div>
+                <div class="ppe-row-item">
+                  <div class="ppe-row-name"><span>🥽</span> GOGGLES</div>
+                  <span id="cam-badge-goggles" class="ppe-badge absent">ABSENT</span>
+                </div>
+                <div class="ppe-row-item">
+                  <div class="ppe-row-name"><span>🧤</span> GLOVES</div>
+                  <span id="cam-badge-gloves" class="ppe-badge absent">ABSENT</span>
+                </div>
+                <div class="ppe-row-item">
+                  <div class="ppe-row-name"><span>😷</span> MASK</div>
+                  <span id="cam-badge-mask" class="ppe-badge absent">ABSENT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EVENT AUDIT STREAM -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title"><span>📝</span> Violation Event Log</div>
+              <span class="panel-tag">Live Stream</span>
+            </div>
+            <div class="panel-body" style="padding:0.75rem;">
+              <div id="cam-event-log" style="height:140px;overflow-y:auto;display:flex;flex-direction:column;gap:0.25rem;">
+                <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim);">Awaiting active video stream...</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: INTERACTIVE INFERENCE LAB ==================== -->
+    <section id="tab-lab" class="tab-pane">
+      
+      <!-- CONTROLS & SAMPLE PICKER -->
+      <div class="lab-controls-bar">
+        
+        <div class="sample-selector">
+          <span style="color:var(--text-muted);white-space:nowrap;">Test Dataset Samples:</span>
+          <div class="sample-pills">
+            <button class="sample-pill-btn active" data-sample="confident-construction-worker-in-safety-gear-with-orange-vest-free-png.png">Worker 1 (Full Gear)</button>
+            <button class="sample-pill-btn" data-sample="gettyimages-1032070332-612x612.jpg">Worker 2</button>
+            <button class="sample-pill-btn" data-sample="gettyimages-1076609158-612x612.jpg">Worker 3</button>
+            <button class="sample-pill-btn" data-sample="gettyimages-175393092-612x612.jpg">Worker 4</button>
+            <button class="sample-pill-btn" data-sample="gettyimages-175452708-612x612.jpg">Worker 5</button>
+            <button class="sample-pill-btn" data-sample="istockphoto-1208587711-612x612.jpg">Worker 6</button>
+          </div>
+        </div>
+
+        <div class="conf-slider-wrap">
+          <span style="color:var(--text-muted);">Confidence:</span>
+          <input type="range" id="lab-conf-slider" min="0.10" max="0.90" step="0.05" value="0.30">
+          <span class="conf-val" id="lab-conf-val">0.30</span>
+        </div>
+
+      </div>
+
+      <!-- MAIN LAB GRID: IMAGES + ANALYSIS -->
+      <div class="grid-sidebar-layout">
+        
+        <!-- LEFT: BEFORE / AFTER IMAGE CANVAS -->
+        <div>
+          <!-- DRAG & DROP UPLOAD ZONE -->
+          <div class="dropzone" id="lab-dropzone">
+            <input type="file" id="lab-file-input" accept="image/*" style="display:none;">
+            <div class="dropzone-icon">📥</div>
+            <div class="dropzone-title">Upload Custom Test Image or Drag & Drop Here</div>
+            <div class="dropzone-sub">Supports JPEG, PNG, WEBP. Inference executes live on YOLOv8 SafetyVision v2 model.</div>
+          </div>
+
+          <!-- COMPARISON BOXES -->
+          <div class="image-viewer-container">
+            
+            <!-- RAW INPUT -->
+            <div class="image-box">
+              <div class="image-box-header">
+                <span>INPUT IMAGE (RAW)</span>
+                <span id="lab-orig-info">--</span>
+              </div>
+              <div class="image-canvas-wrap">
+                <img id="lab-img-original" src="" alt="Raw Input Image">
+              </div>
+            </div>
+
+            <!-- YOLO ANNOTATED -->
+            <div class="image-box">
+              <div class="image-box-header">
+                <span>YOLOv8s PPE INFERENCE (ANNOTATED)</span>
+                <span id="lab-ann-info" style="color:var(--safety-green);">Ready</span>
+              </div>
+              <div class="image-canvas-wrap">
+                <img id="lab-img-annotated" src="" alt="Annotated Detection Output">
+                <div id="lab-loading-indicator" style="display:none;position:absolute;background:rgba(9,13,20,0.85);padding:1rem 1.5rem;border-radius:6px;font-family:var(--font-mono);font-size:0.8rem;color:var(--safety-amber);border:1px solid var(--border-medium);">
+                  ⚡ Executing YOLOv8 Inference...
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT: DETAILED AUDIT & TELEMETRY -->
+        <div>
+          
+          <!-- OVERALL SCORE CARD -->
+          <div id="lab-score-card" class="score-badge-card compliant">
+            <div class="score-title-group">
+              <h4 id="lab-score-verdict">SAFETY COMPLIANT</h4>
+              <p id="lab-score-sub">Mandatory equipment detected.</p>
+            </div>
+            <div class="score-number" id="lab-score-num">100%</div>
+          </div>
+
+          <!-- PPE CHECKLIST -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title"><span>🛡️</span> Mandatory PPE Audit Checklist</div>
+              <span class="panel-tag">5 Tracked Classes</span>
+            </div>
+            <div class="panel-body" style="padding:0.75rem;">
+              <div id="lab-ppe-checklist" class="ppe-status-grid">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- BOUNDING BOX DETAILS TABLE -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title"><span>📐</span> Detected Bounding Boxes</div>
+              <span class="panel-tag">Raw Anchors</span>
+            </div>
+            <div class="panel-body" style="padding:0;max-height:190px;overflow-y:auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Class</th>
+                    <th>Confidence</th>
+                    <th>BBox [x1, y1, x2, y2]</th>
+                  </tr>
+                </thead>
+                <tbody id="lab-boxes-table-body">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- EDGE-TO-CLOUD TELEMETRY JSON -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title"><span>🌐</span> Edge-to-Cloud IoT JSON Payload</div>
+              <span class="panel-tag">REST Telemetry Schema</span>
+            </div>
+            <div class="panel-body" style="padding:0.75rem;">
+              <pre id="lab-telemetry-json" class="code-block"></pre>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==================== TAB 4: EVALUATION GALLERY ==================== -->
+    <section id="tab-gallery" class="tab-pane">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🖼️</span> Dataset Validation & Historical Test Runs
+          </div>
+          <span class="panel-tag">Static Test Suite</span>
+        </div>
+        <div class="panel-body">
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:1.25rem;">
+            These test images demonstrate the model's performance on diverse real-world lighting conditions, safety vest visibility, hardhat designs, and eyewear. Click <b>Inspect in Lab</b> on any sample to immediately load it into the interactive inspector and adjust confidence thresholds.
+          </p>
+          <div id="gallery-items-grid" class="gallery-grid">
+            <!-- Dynamically loaded -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div>
+      <b>SerBot PPE Platform</b> · Two-Wheel Differential Drive Safety Robotics
+    </div>
+    <div>
+      Powered by PyTorch, Ultralytics YOLOv8s, OpenCV, and Flask
+    </div>
+  </footer>
+
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
