@@ -4,7 +4,7 @@ from ultralytics import YOLO
 import cv2
 
 # --- Set these two for your rig ---
-CAMERA_INDEX = 0          # confirmed working for your robot's external camera
+CAMERA_INDEX = 1          # confirmed working for your robot's external camera
 ROTATE_180 = False        # camera is mounted upside down
 # -----------------------------------
 
